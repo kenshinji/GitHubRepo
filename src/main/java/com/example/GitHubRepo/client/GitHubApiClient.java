@@ -6,10 +6,16 @@ import org.springframework.web.client.RestTemplate;
 @Component
 public class GitHubApiClient {
 
-  private static final String GITHUB_API_URL = "https://api.github.com/search/repositories";
+  public static final String GITHUB_REPO_SEARCH_URL = "https://api.github.com/search/repositories";
+  private final RestTemplate restTemplate;
+
+  public GitHubApiClient(RestTemplate restTemplate) {
+    this.restTemplate = restTemplate;
+  }
 
   public String fetchRepositories(String query) {
-    RestTemplate restTemplate = new RestTemplate();
-    return restTemplate.getForObject(GITHUB_API_URL + query, String.class);
+    // Existing code using restTemplate
+    return restTemplate.getForObject(GITHUB_REPO_SEARCH_URL + query, String.class);
   }
 }
+

@@ -14,8 +14,8 @@ public class RepositoryController {
 
   @GetMapping("/top-repositories")
   public String getTopRepositories(
-      @RequestParam(required = false, defaultValue = "2023-10-07") String date,
-      @RequestParam(required = false, defaultValue = "10") int count,
+      @RequestParam(required = false) String date,
+      @RequestParam(required = false) Integer count,
       @RequestParam(required = false) String language
   ) {
     return repositoryService.getTopRepositories(date, count, language);

@@ -8,6 +8,7 @@ This service provides an interface to fetch the most popular repositories from G
 - [Installation](#installation)
 - [Running the Application](#running-the-application)
 - [Running Tests](#running-tests)
+- [Assumptions and Default Values](#assumptions-and-default-values)
 - [API Usage](#api-usage)
 
 ## Prerequisites
@@ -53,6 +54,20 @@ To execute the tests, run the following command:
  ./mvnw test
  
  ```
+
+## Assumptions and Default Values
+While building this service, certain assumptions were made regarding input parameters to ensure a smooth user experience. They are as follows:
+
+1. Date Parameter (date):
+
+If the user does not provide a specific date when querying for popular repositories, the service assumes the user is interested in repositories created as of the current date.
+For instance, if querying on October 10th, 2023 without specifying a date, the service will default to considering repositories created on 2023-10-10.
+
+2. Top Repositories Parameter (count):
+
+The service returns a list of the most popular repositories, sorted by number of stars. If the user does not specify how many repositories they want (e.g., top 10, 50, 100), the service defaults to returning the top 10 repositories.
+This ensures that even if the user is unsure about the exact number of repositories they want to view, they will still get a concise list of the most popular ones.
+
 
 ## API Usage
 
